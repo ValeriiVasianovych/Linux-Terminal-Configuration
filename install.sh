@@ -45,19 +45,22 @@ fi
 apt update -y || cleanup_and_exit "Error during update."
 echo "Update successful."
 
-# Install Zsh and Oh My Zsh
+# Install Zsh
 if ! command -v zsh &> /dev/null; then
     echo "Zsh is not installed. Installing..."
     apt install -y zsh || cleanup_and_exit "Error installing Zsh."
     echo "Zsh installed successfully."
-
-    # Install Oh My Zsh
-    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O install_oh_my_zsh.sh
-    sh install_oh_my_zsh.sh || cleanup_and_exit "Error installing Oh My Zsh."
-    echo "Oh My Zsh installed successfully."
 else
     echo "Zsh is already installed."
 fi
+
+# Install Oh My Zsh (without changing the default shell)
+OH_MY_ZSH_INSTALL_SCRIPT="install_oh_my_zsh.sh"
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O $OH_MY_ZSH_INSTALL_SCRIPT
+sh $OH_MY_ZSH_INSTALL_SCRIPT || cleanup_and_exit "Error installing Oh My Zsh."
+echo "Oh My Zsh installed successfully."
+
+# Continue with the rest of the installations
 
 # Install Neovim
 apt install -y neovim || cleanup_and_exit "Error installing Neovim."
