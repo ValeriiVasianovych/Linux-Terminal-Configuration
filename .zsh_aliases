@@ -1,4 +1,4 @@
-# Bash shell aliases
+# Zsh shell aliases:
 
 alias upd='sudo apt update'
 alias upg='sudo apt upgrade'
@@ -8,6 +8,3 @@ alias tx='tmux'
 alias docker='sudo docker'
 alias ll='ls -al'
 alias vim='nvim'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-

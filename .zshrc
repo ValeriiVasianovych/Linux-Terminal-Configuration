@@ -100,14 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Example aliases
-alias upd='sudo apt update'
-alias upg='sudo apt upgrade'
-alias updg='sudo apt update; sudo apt upgrade -y'
-alias ipy='ipython'
-alias tx='tmux'
-alias docker='sudo docker'
-alias ll='ls -al'
-alias vim='nvim'
+# Path to aliases
+source ~/.zsh_aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

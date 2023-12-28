@@ -1,5 +1,5 @@
 " General settings
-set mouse=a                 " Enable mouse support
+" set mouse=a                 " Enable mouse support
 set number                  " Show line numbers
 set laststatus=2            " Always show status line
 set relativenumber          " Relative line numbers
@@ -34,6 +34,11 @@ call plug#end()
 
 " Color scheme
 syntax on
+highlight Normal ctermbg=NONE guibg=NONE
+augroup user_colors
+  autocmd!
+  autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+augroup END
 colorscheme gruvbox
 
 " NERDTree settings
@@ -45,4 +50,3 @@ let g:python_highlight_all = 1
 
 " Python-specific optimization
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
-
